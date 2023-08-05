@@ -17,7 +17,7 @@ from sklearn.pipeline import Pipeline
 
 # List of themes to search on reddit
 # These are the classes we will be using as target variables
-matters = ['datascience', 'machinelearn', 'deeplearn', 'AI', 'conspiracy']
+matters = ['datascience', 'machinelearning']
 
 # Function to load data
 def load_data():
@@ -27,7 +27,7 @@ def load_data():
         client_id='your client id',
         client_secret='your client secret',
         password='your password',
-        user_agent='your user agente',
+        user_agent='your user agent',
         username='your username'
     )
 
@@ -141,7 +141,7 @@ def train_evaluate(models, pipeline, x_test, x_train, y_test, y_train):
     for name, model in models:
 
         # Pipeline
-        pipe = Pipeline(pipeline, [(name, model)])
+        pipe = Pipeline(pipeline + [(name, model)])
 
         # Training
         print(f'Training the model {model} with the data train')
